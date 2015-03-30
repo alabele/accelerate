@@ -37,5 +37,47 @@ function create_custom_post_types() {
             'rewrite' => array( 'slug' => 'case-studies' ),
         )
     );
+     register_post_type( 'about_content',
+        array(
+            'labels' => array(
+                'name' => __( 'About Content' ),
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array( 'slug' => 'about-content' ),
+        )
+    );
 }
 add_action( 'init', 'create_custom_post_types' );
+
+register_sidebar( array(
+    'name' =>__( 'Homepage sidebar', 'homepage-sidebar'),
+    'id' => 'sidebar-2',
+    'description' => __( 'Appears on the static front page template', 'homepage-sidebar' ),
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+) );
+
+
+register_sidebar( array(
+    'name' =>__( 'Blog sidebar', 'blog-sidebar'),
+    'id' => 'sidebar-3',
+    'description' => __( 'Appears on the blog page template', 'blog-sidebar' ),
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+) );
+
+register_sidebar( array(
+    'name' =>__( 'Page sidebar', 'page-sidebar'),
+    'id' => 'sidebar-1',
+    'description' => __( 'Appears on the page template', 'page-sidebar' ),
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+) );
+
